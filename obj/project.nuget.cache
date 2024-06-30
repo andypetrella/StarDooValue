@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "py8gAkFAAX8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Shadow\\Documents\\src\\StarDooValue\\StarDooValue.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Shadow\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.1.1\\pathoschild.stardew.modbuildconfig.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
