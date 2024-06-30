@@ -1,0 +1,20 @@
+{
+    "1001": {
+      "questTitle": "Gathering Feedback",
+      "questDescription": "Talk to key villagers to understand the data issues.",
+      "rewards": {
+        "items": [
+          { "id": 388, "amount": 10 }
+        ]
+      }
+    },
+    "1002": {
+      "questTitle": "Investigate Maru's Case",
+      "questDescription": "Investigate the gaps in data logs and set up data observability for Maru.",
+      "rewards": {
+        "items": [
+          { "id": 390, "amount": 10 }
+        ]
+      }
+    }
+  }

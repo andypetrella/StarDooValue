@@ -7,10 +7,16 @@ public class StarDooValueMod : Mod
 {
     private const string IntroductionFlag = "DataObservabilityOfficerIntroduction";
     private const string MailFlag = "DataObservabilityOfficerInvitation";
+    private const string NextQuestFlag = "DataObservabilityOfficerNextQuest";
     private Dictionary<string, string> mailContents;
+    private DialogueManager dialogueManager;
+    private QuestManager questManager;
 
     public override void Entry(IModHelper helper)
     {
+        questManager = new QuestManager(helper, Monitor);
+        dialogueManager = new DialogueManager(helper, Monitor, questManager);
+
         helper.Events.GameLoop.DayStarted += OnDayStarted;
         helper.Events.Input.ButtonPressed += OnButtonPressed;
         helper.Events.Content.AssetRequested += OnAssetRequested;
@@ -52,6 +58,12 @@ public class StarDooValueMod : Mod
             Game1.addMailForTomorrow(MailFlag);
             Monitor.Log("Added DataObservabilityOfficerInvitation mail for tomorrow.", LogLevel.Debug);
         }
+
+        if (Game1.player.mailReceived.Contains(IntroductionFlag) && !Game1.player.mailReceived.Contains(NextQuestFlag))
+        {
+            Game1.addMailForTomorrow(NextQuestFlag);
+            Monitor.Log("Added DataObservabilityOfficerNextQuest mail for tomorrow.", LogLevel.Debug);
+        }
     }
 
     private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
@@ -59,31 +71,33 @@ public class StarDooValueMod : Mod
         if (!Context.IsWorldReady || Game1.activeClickableMenu != null)
             return;
 
-        // Check if the player is interacting with Lewis
         NPC npc = Game1.currentLocation.isCharacterAtTile(e.Cursor.Tile);
-        if (e.Button.IsActionButton() && npc != null)
+        if (e.Button.IsActionButton() && npc != null && npc.Name == "Lewis")
         {
-            if (npc != null && npc.Name == "Lewis")
+            Monitor.Log("Interacting with Lewis.", LogLevel.Debug);
+
+            if (Game1.player.mailReceived.Contains(MailFlag) && !Game1.player.eventsSeen.Contains(IntroductionFlag))
             {
-                Monitor.Log("Interacting with Lewis.", LogLevel.Debug);
+                dialogueManager.StartInitialDialogue(npc);
+            }
+            else if (Game1.player.mailReceived.Contains(NextQuestFlag))
+            {
+                dialogueManager.StartNextQuestDialogue(npc);
+            }
+        }
 
-                // Trigger dialogue if the player has received the mail
-                if (Game1.player.mailReceived.Contains(MailFlag) && !Game1.player.eventsSeen.Contains(IntroductionFlag))
-                {
-                    string dialogueText = Helper.Translation.Get("DataObservabilityOfficerIntroduction");
-                    Monitor.Log($"Fetched translation: {dialogueText}", LogLevel.Debug);
+        if (e.Button.IsActionButton())
+        {
+            // Interactions with other NPCs for gathering feedback
+            if (npc != null && new List<string> { "Robin", "Pierre", "Morris", "Marnie", "Gus" }.Contains(npc.Name))
+            {
+                dialogueManager.GatherFeedback(npc);
+            }
 
-                    if (!string.IsNullOrEmpty(dialogueText))
-                    {
-                        npc.CurrentDialogue.Push(new Dialogue(npc, IntroductionFlag, dialogueText));
-                        Game1.drawDialogue(npc);
-                        Game1.player.eventsSeen.Add(IntroductionFlag);
-                    }
-                    else
-                    {
-                        Monitor.Log("No translation found for key: DataObservabilityOfficerIntroduction", LogLevel.Error);
-                    }
-                }
+            // Interactions with engineers and analysts
+            if (npc != null && new List<string> { "Clint", "Maru", "Emily", "Leah" }.Contains(npc.Name))
+            {
+                dialogueManager.EngineerAnalystDialogue(npc);
             }
         }
     }
