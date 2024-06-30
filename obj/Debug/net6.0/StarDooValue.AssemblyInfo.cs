@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StarDooValue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7cadd4196d9a409a9b04a153348b664d7ca5783")]
 [assembly: System.Reflection.AssemblyProductAttribute("StarDooValue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StarDooValue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
