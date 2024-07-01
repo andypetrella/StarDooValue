@@ -5,7 +5,7 @@
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
-        "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Morris, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./-1/0/None/true/",
+        "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./-1/0/None/true/",
         "1002": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/"
       }
     }
