@@ -15,8 +15,9 @@ public class QuestManager
     {
         this.helper = helper;
         this.monitor = monitor;
-        this.quest1 = new Quest1(helper, monitor, this);
-        this.quest2 = new Quest2(helper, monitor, this);
+        DialogueManager dialogueManager = new DialogueManager(helper, monitor, this);
+        this.quest1 = new Quest1(helper, monitor, this, dialogueManager);
+        this.quest2 = new Quest2(helper, monitor, this, dialogueManager);
     }
 
     public void OnDayStarted(object? sender, DayStartedEventArgs e)
@@ -27,10 +28,13 @@ public class QuestManager
 
     public void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
     {
+        if (!Context.IsWorldReady || Game1.activeClickableMenu != null)
+            return;
+
         NPC npc = Game1.currentLocation.isCharacterAtTile(e.Cursor.Tile);
         if (e.Button.IsActionButton() && npc != null)
         {
-            if (quest1.IsActive)
+            if (quest1.IsActive())
             {
                 quest1.HandleButtonPress(npc);
             }
@@ -41,13 +45,4 @@ public class QuestManager
         }
     }
 
-    public void StartGatheringFeedbackQuest()
-    {
-        quest1.StartGatheringFeedbackQuest("1001");
-    }
-
-    public void StartMaruCaseQuest()
-    {
-        quest2.StartMaruCaseQuest("1002");
-    }
 }

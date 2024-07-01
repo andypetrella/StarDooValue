@@ -5,18 +5,19 @@ using System.Collections.Generic;
 
 public class Quest2
 {
+    private string questId = "1002";
     private readonly IModHelper helper;
     private readonly IMonitor monitor;
     private readonly QuestManager questManager;
     private readonly DialogueManager dialogueManager;
     public bool IsActive { get; private set; }
 
-    public Quest2(IModHelper helper, IMonitor monitor, QuestManager questManager)
+    public Quest2(IModHelper helper, IMonitor monitor, QuestManager questManager, DialogueManager dialogueManager)
     {
         this.helper = helper;
         this.monitor = monitor;
         this.questManager = questManager;
-        this.dialogueManager = new DialogueManager(helper, monitor, questManager);
+        this.dialogueManager = dialogueManager;
         this.IsActive = false;
     }
 
@@ -38,8 +39,13 @@ public class Quest2
         }
         else if (new List<string> { "Clint", "Maru", "Emily", "Leah" }.Contains(npc.Name))
         {
-            dialogueManager.EngineerAnalystDialogue(npc);
+            EngineerAnalystDialogue(npc);
         }
+    }
+
+    public void EngineerAnalystDialogue(NPC npc)
+    {
+        dialogueManager.DrawDialogueFromKey(npc, $"{npc.Name}Feedback");
     }
 
     public void StartNextQuestDialogue(NPC npc)
@@ -52,12 +58,12 @@ public class Quest2
         });
 
         Game1.player.eventsSeen.Add("DataObservabilityOfficerNextQuest");
-        questManager.StartMaruCaseQuest();
+        StartMaruCaseQuest();
     }
 
-    public void StartMaruCaseQuest(string quest)
+    public void StartMaruCaseQuest()
     {
-        Game1.player.addQuest(quest);
+        Game1.player.addQuest(questId);
         monitor.Log("Started quest: Investigate Maru's Case", LogLevel.Info);
     }
 }

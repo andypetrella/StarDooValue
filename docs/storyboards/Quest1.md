@@ -29,8 +29,6 @@ Mayor Lewis
 
 **Pierre**: "Sales reports are not matching up with the inventory. It's causing confusion and affecting my business decisions. For example, last week's report showed 20 units of fertilizer sold, but only 10 were recorded in the inventory."
 
-**Morris**: "JojaMart has been receiving inconsistent supply data. It's impacting our operations and customer satisfaction. Sometimes the delivery logs show items we never received, like 50 boxes of cereal that never arrived."
-
 **Marnie**: "Some of the livestock data seems incorrect. It's affecting my ability to manage the farm efficiently. For instance, one report showed I had 8 cows, but I only have 6."
 
 **Gus**: "The ingredient orders and inventory levels are not matching up. It's creating problems in running the saloon smoothly. I had an order for 30 tomatoes, but only 20 were delivered, causing shortages."

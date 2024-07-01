@@ -18,39 +18,6 @@ public class DialogueManager
         this.questManager = questManager;
     }
 
-    public void StartInitialDialogue(NPC npc)
-    {
-        SequenceDialogueFromKeys(npc, ["DataObservabilityOfficerIntroduction1", "DataObservabilityOfficerHelpPrompt", "DataObservabilityOfficerIntroduction2"]);
-
-        Game1.afterDialogues += () =>
-        {
-            questManager.StartGatheringFeedbackQuest();
-        };
-
-        Game1.player.eventsSeen.Add("DataObservabilityOfficerIntroduction");
-    }
-
-    public void GatherFeedback(NPC npc)
-    {
-        DrawDialogueFromKey(npc, $"{npc.Name}Feedback");
-    }
-
-    public void EngineerAnalystDialogue(NPC npc)
-    {
-        DrawDialogueFromKey(npc, $"{npc.Name}Feedback");
-    }
-
-    public void StartNextQuestDialogue(NPC npc)
-    {
-        GroupChat([
-            [(npc, "LewisNextQuest")],
-            [(npc, "PlayerMaruCase")],
-            [(npc, "LewisApprove"), (npc, "PlayerStart")]
-        ]);
-
-        Game1.player.eventsSeen.Add("DataObservabilityOfficerNextQuest");
-        questManager.StartMaruCaseQuest();
-    }
 
     public Dialogue? PushDialogueFromKey(NPC npc, string key) 
     {

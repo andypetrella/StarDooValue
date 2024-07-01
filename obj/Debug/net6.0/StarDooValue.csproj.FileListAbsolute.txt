@@ -1,8 +1,0 @@
-C:\Users\Shadow\Documents\src\StarDooValue\bin\Debug\net6.0\StarDooValue.deps.json
-C:\Users\Shadow\Documents\src\StarDooValue\bin\Debug\net6.0\StarDooValue.dll
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.csproj.AssemblyReference.cache
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.AssemblyInfoInputs.cache
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.AssemblyInfo.cs
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.csproj.CoreCompileInputs.cache
-C:\Users\Shadow\Documents\src\StarDooValue\obj\Debug\net6.0\StarDooValue.dll
