@@ -1,0 +1,41 @@
+[
+    {
+        "id": "1001",
+        "type": "Basic",
+        "title": "Gathering Feedback",
+        "details": "Talk to key villagers to understand the data issues.",
+        "hint": "Talk to Robin, Pierre, Marnie, and Gus to gather feedback.",
+        "trigger": "Complete the quest by talking to all specified villagers.",
+        "next_quest": "1002",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": ""
+    },
+    {
+        "id": "1002",
+        "type": "Basic",
+        "title": "Investigating Pipelines",
+        "details": "Go find some evidence of misfunctioning pipelines.",
+        "hint": "you may find clues by mining or fishing.",
+        "trigger": "Complete the quest by finding reasons of data trust loss.",
+        "next_quest": "1003",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": ""
+    },
+    {
+        "id": "1003",
+        "type": "Basic",
+        "title": "Investigate Maru's Case",
+        "details": "Investigate the gaps in data logs and set up data observability for Maru.",
+        "hint": "Investigate Maru's data logs and set up observability processes.",
+        "trigger": "Complete the quest by investigating the data logs and setting up observability.",
+        "next_quest": "-1",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": ""
+    }
+]
