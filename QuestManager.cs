@@ -1,6 +1,7 @@
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Quests;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
 
@@ -43,6 +44,19 @@ public class QuestManager
                 quest2.HandleButtonPress(npc);
             }
         }
+    }
+
+    public bool IsActive(string questId)
+    {
+        for (int num = Game1.player.questLog.Count - 1; num >= 0; num--)
+        {
+            Quest quest = Game1.player.questLog[num];
+            if (quest.id.Value == questId)
+            {
+                return !quest.completed.Get();
+            }
+        }
+        return false;
     }
 
 }

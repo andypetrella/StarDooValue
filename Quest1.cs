@@ -2,6 +2,7 @@ using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Quests;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Quest1
 {
@@ -10,7 +11,11 @@ public class Quest1
     private readonly IMonitor monitor;
     private readonly QuestManager questManager;
     private readonly DialogueManager dialogueManager;
-    private bool _IsActive;
+    private bool _IsActive = false;
+    private bool _IsEnded = false;
+    private Dictionary<string, bool> feedbackGathered = new Dictionary<string, bool> (){ 
+        {"Robin", false}, {"Pierre", false}, {"Marnie", false}, {"Gus", false}
+    };
 
     public Quest1(IModHelper helper, IMonitor monitor, QuestManager questManager, DialogueManager dialogueManager)
     {
@@ -18,7 +23,6 @@ public class Quest1
         this.monitor = monitor;
         this.questManager = questManager;
         this.dialogueManager = dialogueManager;
-        this._IsActive = false;
     }
 
     public void CheckMail()
@@ -37,17 +41,24 @@ public class Quest1
 
     public bool IsActive() 
     {
-        return _IsActive || CanBeStartedWithLewis();
+        return !_IsEnded && (_IsActive || CanBeStartedWithLewis());
     }
 
     public void HandleButtonPress(NPC npc)
     {
 
-        if (CanBeStartedWithLewis() && npc.Name == "Lewis")
+        if (npc.Name == "Lewis")
         {
-            StartInitialDialogue(npc);
+            if (CanBeStartedWithLewis())
+            {
+                StartInitialDialogue(npc);
+            }
+            else if (feedbackGathered.Values.All(x => x))
+            {
+                FeedbackGathered(npc);
+            }
         }
-        else if (new List<string> { "Robin", "Pierre", "Marnie", "Gus" }.Contains(npc.Name))
+        else if (feedbackGathered.ContainsKey(npc.Name))
         {
             GatherFeedback(npc);
         }
@@ -76,6 +87,15 @@ public class Quest1
     public void GatherFeedback(NPC npc)
     {
         dialogueManager.DrawDialogueFromKey(npc, $"{npc.Name}Feedback");
+        feedbackGathered[npc.Name] = true;
+    }
+
+    public void FeedbackGathered(NPC npc) 
+    {
+        dialogueManager.DrawDialogueFromKey(npc, "StakeholdersFeedbackCollected");
+        Game1.player.completeQuest(questId);
+        _IsEnded = true;
+        _IsActive = false;
     }
 
 }

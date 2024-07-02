@@ -6,7 +6,8 @@
     "PierreFeedback": "Sales reports are not matching up with the inventory. It's causing confusion and affecting my business decisions. For example, last week's report showed 20 units of fertilizer sold, but only 10 were recorded in the inventory.",
     "MarnieFeedback": "Some of the livestock data seems incorrect. It's affecting my ability to manage the farm efficiently. For instance, one report showed I had 8 cows, but I only have 6.",
     "GusFeedback": "The ingredient orders and inventory levels are not matching up. It's creating problems in running the saloon smoothly. I had an order for 30 tomatoes, but only 20 were delivered, causing shortages.",
-    "InvestigatePipelines": "Investigate the data pipelines where the issues have been occurring to understand the reasons.",
+    "StakeholdersFeedbackCollected": "Mmmmh interesting...\nLooks like we have some troubles in various places in our system.",
+    "InvestigatePipelines": "Please investigate the data pipelines where the issues have been occurring to understand the reasons.",
     "ClintFeedback": "We've noticed some irregularities in the data we're processing. It seems like some data is getting corrupted. For instance, the data logs for processed iron are incomplete, showing gaps for certain days.",
     "MaruFeedback": "There are gaps in the data logs, making it hard to track where things go wrong. For example, some logs show data up to 2 PM, then nothing until the next day.",
     "EmilyFeedback": "The quality of the data is poor. It's affecting our ability to make informed decisions. Sometimes the data is just wrong, like a report showing a 50% increase in sales that never happened.",
@@ -19,10 +20,5 @@
     "LewisNextQuest": "Dear @,\n\nI've been thinking about our discussion and the situation worries me. Your proposal feels ambitious but promising. I think we should experiment with it on a specific scope to see how it works. Can you propose a use case that would demonstrate the system in a non-trivial way?\n\nBest regards,\nMayor Lewis",
     "PlayerMaruCase": "I propose we start with Maru's case. She's been dealing with gaps in the data logs, which make it hard to track where things go wrong.",
     "LewisApprove": "Alright, let's give it a try. Show me how data observability can help in this situation.",
-    "PlayerStart": "I'll get started on setting up the system and gathering initial data.",
-    "GatherFeedbackQuestName": "Gathering Feedback",
-    "GatherFeedbackQuestObjective": "Talk to key villagers to understand the data issues.",
-    "MaruCaseQuestName": "Investigate Maru's Case",
-    "MaruCaseQuestObjective": "Investigate the gaps in data logs and set up data observability for Maru."
-  }
-  
+    "PlayerStart": "I'll get started on setting up the system and gathering initial data."
+}

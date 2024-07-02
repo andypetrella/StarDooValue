@@ -43,10 +43,6 @@ Mayor Lewis
 - **Player**: "Clint provides insights into the issues with processing raw data."
 - **Clint**: "We've noticed some irregularities in the data we're processing. It seems like some data is getting corrupted. For instance, the data logs for processed iron are incomplete, showing gaps for certain days."
 
-**JojaMart Warehouse**:
-- **Player**: "You analyze the supply data logs and find inconsistencies."
-- **Dialogue**: "The supply data shows irregularities in the delivery schedules and quantities. One log shows a delivery of 100 apples, but only 80 were recorded as received."
-
 ### Scene 5: Discussing with Data Engineers and Quality Analysts
 
 **Clint**: "We've noticed some irregularities in the data we're processing. It seems like some data is getting corrupted. For instance, the data logs for processed iron are incomplete, showing gaps for certain days."
