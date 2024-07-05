@@ -3,6 +3,44 @@
   "Changes": [
     {
       "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "File": {
+          "Name": "File",
+          "Price": 10,
+          "Edibility": -300,
+          "Category": -2,
+          "Description": "A file containing important information.",
+          "Type": "Object",
+
+          "Texture": "Mods/StarDooValueContent/assets/File.png",  
+          "SpriteIndex": 0
+        },
+        "BrokenComputer": {
+          "Name": "BrokenComputer",
+          "DisplayName": "Broken Computer",
+          "Description": "An old broken computer.",
+          "Type": "Object",
+          "Category": -2,
+          "Price": 0,
+
+          "Texture": "Mods/StarDooValueContent/assets/BrokenComputer.png",  
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/BrokenComputer.png",
+      "FromFile": "assets/BrokenComputer.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/File.png",
+      "FromFile": "assets/File.png"
+    },
+    {
+      "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
         "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./1002/0/None/true/",
