@@ -89,22 +89,6 @@ public class StarDooValueMod : Mod
             {
                 // Placer des ordinateurs cassés dynamiquement
                 PlaceBrokenComputers(mine);
-                
-                // Vérifier et collecter les fichiers des ordinateurs cassés
-                foreach (var obj in mine.objects.Pairs.ToList())
-                {
-                    if (obj.Value.Name == "BrokenComputer" && Game1.player.currentLocation.Equals(obj.Key) && Game1.player.CurrentTool is Pickaxe)
-                    {
-                        mine.removeObject(obj.Key, showDestroyedObject: true);
-                        collectedFiles++;
-                        Game1.createObjectDebris("9000", (int)obj.Key.X, (int)obj.Key.Y, Game1.player.UniqueMultiplayerID);
-                        if (collectedFiles >= targetFiles)
-                        {
-                            Game1.addHUDMessage(new HUDMessage("Quest Complete!"));
-                            // Logique pour compléter la quête
-                        }
-                    }
-                }
             }
     }
 
@@ -112,9 +96,9 @@ public class StarDooValueMod : Mod
         private void PlaceBrokenComputers(MineShaft mine)
         {
             Random random = new Random();
-            while (placedComputers < 3) {
+            while (placedComputers < 30) {
                 Vector2 position = new Vector2(random.Next(mine.Map.DisplayWidth / 64), random.Next(mine.Map.DisplayHeight / 64));
-                if (mine.CanItemBePlacedHere(position) && mine.isTilePassable(position) && mine.isTilePlaceable(position))
+                if (mine.isTileClearForMineObjects(position) && mine.isTileOnClearAndSolidGround(position))
                 {
                     // var computer = new StardewValley.Object(position, "(O)BrokenComputer");
                     StardewValley.Object computer = ItemRegistry.Create<StardewValley.Object>("(O)BrokenComputer", 1);
