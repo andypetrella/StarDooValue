@@ -4,6 +4,13 @@ using StardewValley;
 using StardewValley.Quests;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
+using StardewValley.Locations;
+using StardewValley.Tools;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Linq;
+
 
 public class QuestManager
 {
@@ -42,6 +49,19 @@ public class QuestManager
             else if (quest2.IsActive)
             {
                 quest2.HandleButtonPress(npc);
+            }
+        }
+
+        if (e.Button.IsUseToolButton() && Game1.player.CurrentTool is Pickaxe)
+        {
+            Vector2 tile = e.Cursor.Tile;
+            if (Game1.currentLocation is MineShaft mine && mine.objects.TryGetValue(tile, out StardewValley.Object obj))
+            {
+                if (obj.Name == "BrokenComputer")
+                {
+                    mine.removeObject(tile, showDestroyedObject: true);
+                    Game1.createObjectDebris("(O)File", (int)tile.X, (int)tile.Y, Game1.player.UniqueMultiplayerID);
+                }
             }
         }
     }
