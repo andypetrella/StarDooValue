@@ -5,6 +5,7 @@ using StardewValley.Locations;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Force.DeepCloner;
 
 public class StarDooValueMod : Mod
 {
@@ -64,8 +65,7 @@ public class StarDooValueMod : Mod
         if (e.NewLocation.Name == "Farm")
         {
             // Start the drone near the player when they enter the farm
-            dronePosition = e.Player.getLocalPosition(Game1.viewport);
-            this.Monitor.Log($"Drone started near the player at {dronePosition}.", LogLevel.Info);
+            dronePosition = e.Player.Position.DeepClone();
         }
     }
 
@@ -96,8 +96,8 @@ public class StarDooValueMod : Mod
             dronePosition += droneVelocity;
 
             // Ensure the drone stays within the bounds of the farm/forest area
-            dronePosition.X = Math.Clamp(dronePosition.X, 0, Game1.currentLocation.Map.DisplayWidth - droneTexture.Width);
-            dronePosition.Y = Math.Clamp(dronePosition.Y, 0, Game1.currentLocation.Map.DisplayHeight - droneTexture.Height);
+            dronePosition.X = Math.Clamp(dronePosition.X, 0, Game1.currentLocation.Map.DisplayWidth * 64 - droneTexture.Width);
+            dronePosition.Y = Math.Clamp(dronePosition.Y, 0, Game1.currentLocation.Map.DisplayHeight * 64 - droneTexture.Height);
         }
     }
 
@@ -131,8 +131,8 @@ public class StarDooValueMod : Mod
             droneTexture = Helper.GameContent.Load<Texture2D>("Mods/StarDooValueContent/assets/do-eye.png");
             int frameWidth = droneTexture.Width / droneNumberOfFrames; 
             Rectangle sourceRect = new Rectangle(animationFrame * frameWidth, 0, frameWidth, droneTexture.Height);
-            Monitor.Log($"Drone position {dronePosition}", LogLevel.Info);
-            e.SpriteBatch.Draw(droneTexture, dronePosition, sourceRect, Color.White);
+            Vector2 screenPosition = Game1.GlobalToLocal(Game1.viewport, dronePosition);
+            e.SpriteBatch.Draw(droneTexture, screenPosition, sourceRect, Color.White);
         }
     }
 
