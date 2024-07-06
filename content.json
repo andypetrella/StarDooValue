@@ -40,6 +40,11 @@
       "FromFile": "assets/File.png"
     },
     {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/do-eye.png",
+      "FromFile": "assets/do-eye.png"
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
