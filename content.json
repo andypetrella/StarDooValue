@@ -5,18 +5,18 @@
       "Action": "EditData",
       "Target": "Data/Objects",
       "Entries": {
-        "File": {
+        "9000": {
           "Name": "File",
-          "Price": 10,
-          "Edibility": -300,
-          "Category": -2,
-          "Description": "A file containing important information.",
+          "DisplayName": "Pipeline Information",
+          "Description": "A file containing important information about pipelines.",
           "Type": "Object",
+          "Category": -2,
+          "Price": 0,
 
           "Texture": "Mods/StarDooValueContent/assets/File.png",  
           "SpriteIndex": 0
         },
-        "BrokenComputer": {
+        "9001": {
           "Name": "BrokenComputer",
           "DisplayName": "Broken Computer",
           "Description": "An old broken computer.",
@@ -44,7 +44,7 @@
       "Target": "Data/Quests",
       "Entries": {
         "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./1002/0/None/true/",
-        "1002": "Basic/Investigating Pipelines/Go find some evidence of misfunctioning pipelines./you may find clues by mining or fishing./Complete the quest by finding reasons of data trust loss./1003/0/None/true/",      
+        "1002": "ItemDelivery/Investigating Pipelines/Go find some evidence of misfunctioning pipelines./You may find (5) clues by mining reasons of data trust loss./Lewis 9000 5/1003/0/None/true/Okay, good job, it may be interesting to get additional details from the eng.",     
         "1003": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/"
       }
     }

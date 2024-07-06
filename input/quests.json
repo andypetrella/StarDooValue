@@ -14,16 +14,16 @@
     },
     {
         "id": "1002",
-        "type": "Basic",
+        "type": "ItemDelivery",
         "title": "Investigating Pipelines",
         "details": "Go find some evidence of misfunctioning pipelines.",
-        "hint": "you may find clues by mining or fishing.",
-        "trigger": "Complete the quest by finding reasons of data trust loss.",
+        "hint": "You may find (5) clues by mining reasons of data trust loss.",
+        "trigger": "Lewis 9000 5",
         "next_quest": "1003",
         "gold": "0",
         "reward": "None",
         "cancellable": "true",
-        "reaction": ""
+        "reaction": "Okay, good job, it may be interesting to get additional details from the eng."
     },
     {
         "id": "1003",
