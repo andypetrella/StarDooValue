@@ -60,7 +60,7 @@ public class QuestManager
                 if (obj.Name == "BrokenComputer")
                 {
                     mine.removeObject(tile, showDestroyedObject: true);
-                    Game1.createObjectDebris("(O)File", (int)tile.X, (int)tile.Y, Game1.player.UniqueMultiplayerID);
+                    Game1.createObjectDebris("(O)9000", (int)tile.X, (int)tile.Y, Game1.player.UniqueMultiplayerID);
                 }
             }
         }

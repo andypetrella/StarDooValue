@@ -96,12 +96,11 @@ public class StarDooValueMod : Mod
         private void PlaceBrokenComputers(MineShaft mine)
         {
             Random random = new Random();
-            while (placedComputers < 30) {
+            while (placedComputers < 5) {
                 Vector2 position = new Vector2(random.Next(mine.Map.DisplayWidth / 64), random.Next(mine.Map.DisplayHeight / 64));
                 if (mine.isTileClearForMineObjects(position) && mine.isTileOnClearAndSolidGround(position))
                 {
-                    // var computer = new StardewValley.Object(position, "(O)BrokenComputer");
-                    StardewValley.Object computer = ItemRegistry.Create<StardewValley.Object>("(O)BrokenComputer", 1);
+                    StardewValley.Object computer = ItemRegistry.Create<StardewValley.Object>("(O)9001", 1);
                     computer.CanBeSetDown = true;
                     computer.CanBeGrabbed = false;
                     mine.objects[position] = computer;
