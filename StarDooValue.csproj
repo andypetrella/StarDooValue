@@ -5,6 +5,8 @@
     <!-- <ImplicitUsings>enable</ImplicitUsings> -->
     <Nullable>enable</Nullable>
     <LangVersion>Latest</LangVersion>
+
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
