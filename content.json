@@ -47,6 +47,13 @@
         "1002": "ItemDelivery/Investigating Pipelines/Go find some evidence of misfunctioning pipelines./You may find (5) clues by mining reasons of data trust loss./Lewis 9000 5/1003/0/None/true/Okay, good job, it may be interesting to get additional details from the eng.",     
         "1003": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/"
       }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Mail",
+      "Entries": {
+        "DataObservabilityOfficerInvitation": "Dear @,^I have an urgent matter to discuss with you regarding the town's data management. Please visit me in my office at your earliest convenience.^Best regards,^Mayor Lewis"
+      }
     }
   ]
 }
