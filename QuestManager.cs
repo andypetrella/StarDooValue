@@ -23,7 +23,7 @@ public class QuestManager
     {
         this.helper = helper;
         this.monitor = monitor;
-        DialogueManager dialogueManager = new DialogueManager(helper, monitor, this);
+        DialogueManager dialogueManager = new DialogueManager(helper, monitor);
         this.quest1 = new Quest1(helper, monitor, this, dialogueManager);
         this.quest2 = new Quest2(helper, monitor, this, dialogueManager);
     }
@@ -64,6 +64,7 @@ public class QuestManager
                 }
             }
         }
+        
     }
 
     public bool IsActive(string questId)

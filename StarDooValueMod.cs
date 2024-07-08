@@ -2,10 +2,18 @@
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Locations;
+using StardewValley.Menus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Force.DeepCloner;
+using System.Collections.Generic;
+using System.Linq;
+using StardewValley.Inventories;
+using StardewValley.Quests;
+using StardewValley.Pathfinding;
+using StardewValley.GameData.Characters;
+using StardewValley.TerrainFeatures;
 
 public class StarDooValueMod : Mod
 {
@@ -23,10 +31,16 @@ public class StarDooValueMod : Mod
     private int animationTimer;
     private int droneNumberOfFrames = 1;
 
+    private Dictionary<string, (string, Vector2)> npcCameraQuest;
 
     public override void Entry(IModHelper helper)
     {
         questManager = new QuestManager(helper, Monitor);
+        npcCameraQuest = new Dictionary<string, (string, Vector2)>
+        {
+            { "7000", ("ScienceHouse", new Vector2(23, 15)) },
+            { "7001", ("LeahHouse", new Vector2(6, 2)) }
+        };
 
         droneVelocity = new Vector2(0, 0);
         random = new Random();
@@ -38,6 +52,18 @@ public class StarDooValueMod : Mod
         helper.Events.Player.Warped += OnWarped;
         helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
         helper.Events.Display.RenderedWorld += OnRenderedWorld;
+    }
+
+    private void InstallCamera(string locationName, Vector2 cameraPosition)
+    {
+        var location = Game1.getLocationFromName(locationName);
+
+        if (location != null)
+        {
+            StardewValley.Object cam = ItemRegistry.Create<StardewValley.Object>("(O)9002", 1);
+            location.objects[cameraPosition] = cam;
+            Monitor.Log($"Installed camera in {cameraPosition} in {locationName}.", LogLevel.Info);
+        }
     }
     
     private void OnDayStarted(object? sender, DayStartedEventArgs e)
@@ -57,6 +83,16 @@ public class StarDooValueMod : Mod
                 Game1.addMailForTomorrow(NextQuestFlag);
                 Monitor.Log("Added DataObservabilityOfficerNextQuest mail for tomorrow.", LogLevel.Debug);
             }
+
+            string qid = "7000";
+            if (!Game1.player.hasQuest(qid))
+            {
+                Game1.player.addQuest(qid);
+                StardewValley.Object cam = ItemRegistry.Create<StardewValley.Object>("(O)9002", 1);
+                Game1.player.addItemToInventory(cam);
+                cam = ItemRegistry.Create<StardewValley.Object>("(O)9002", 1);
+                Game1.player.addItemToInventory(cam);
+            }
         }
     }
 
@@ -72,6 +108,19 @@ public class StarDooValueMod : Mod
     private void OnUpdateTicked(object? sender, EventArgs e)
     {
        
+        if (Context.IsWorldReady)
+        {
+            foreach (var quest in Game1.player.questLog)
+            {
+                if (quest.completed.Value && npcCameraQuest.ContainsKey(quest.id.Value))
+                {
+                    var npcQuest = npcCameraQuest[quest.id.Value];
+                    npcCameraQuest.Remove(quest.id.Value);
+                    InstallCamera(npcQuest.Item1, npcQuest.Item2);
+                }
+            }
+
+        }
         if (Context.IsWorldReady && Game1.player?.currentLocation is MineShaft mine)
         {
             PlaceBrokenComputers(mine);
@@ -100,7 +149,6 @@ public class StarDooValueMod : Mod
             dronePosition.Y = Math.Clamp(dronePosition.Y, 0, Game1.currentLocation.Map.DisplayHeight * 64 - droneTexture.Height);
         }
     }
-
 
     private void PlaceBrokenComputers(MineShaft mine)
     {

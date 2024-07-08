@@ -9,13 +9,11 @@ public class DialogueManager
 {
     private readonly IModHelper helper;
     private readonly IMonitor monitor;
-    private readonly QuestManager questManager;
 
-    public DialogueManager(IModHelper helper, IMonitor monitor, QuestManager questManager)
+    public DialogueManager(IModHelper helper, IMonitor monitor)
     {
         this.helper = helper;
         this.monitor = monitor;
-        this.questManager = questManager;
     }
 
 
