@@ -37,5 +37,31 @@
         "reward": "None",
         "cancellable": "true",
         "reaction": ""
+    },
+    {
+        "id": "7000",
+        "type": "ItemDelivery",
+        "title": "Deliver an agent to Maru",
+        "details": "Help Maru make her data pipelines observable.",
+        "hint": "Give the agent to Maru when she is in her laboratory.",
+        "trigger": "Maru 9002 1",
+        "next_quest": "7001",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "false",
+        "reaction": "Thanks a lot for this, let's install and configure it!"
+    },
+    {
+        "id": "7001",
+        "type": "ItemDelivery",
+        "title": "Deliver an agent to Leah",
+        "details": "Help Leah make her data pipelines observable.",
+        "hint": "Give the agent to Leah when she is in her creativity room.",
+        "trigger": "Leah 9002 1",
+        "next_quest": "-1",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "false",
+        "reaction": "Thanks a lot for this, let's install and configure it!"
     }
 ]

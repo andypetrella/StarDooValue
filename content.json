@@ -26,6 +26,17 @@
 
           "Texture": "Mods/StarDooValueContent/assets/BrokenComputer.png",  
           "SpriteIndex": 0
+        },
+        "9002": {
+          "Name": "DOCam",
+          "DisplayName": "Data Observability Agent",
+          "Description": "An agent recording meta information about data and operations.",
+          "Type": "Object",
+          "Category": -2,
+          "Price": 0,
+
+          "Texture": "Mods/StarDooValueContent/assets/do-cam.png",
+          "SpriteIndex": 0
         }
       }
     },
@@ -45,13 +56,19 @@
       "FromFile": "assets/do-eye.png"
     },
     {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/do-cam.png",
+      "FromFile": "assets/do-cam.png"
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
         "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./1002/0/None/true/",
         "1002": "ItemDelivery/Investigating Pipelines/Go find some evidence of misfunctioning pipelines./You may find (5) clues by mining reasons of data trust loss./Lewis 9000 5/1003/0/None/true/Okay, good job, it may be interesting to get additional details from the eng.",     
-        "1003": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/"
-      }
+        "1003": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/",
+        "7000": "ItemDelivery/Deliver an agent to Maru/Help Maru make her data pipelines observable./Give the agent to Maru when she is in her laboratory./Maru 9002 1/7001/0/None/false/Thanks a lot for this, let's install and configure it!",
+        "7001": "ItemDelivery/Deliver an agent to Leah/Help Leah make her data pipelines observable./Give the agent to Leah when she is in her creativity room./Leah 9002 1/-1/0/None/false/Thanks a lot for this, let's install and configure it!"      }
     },
     {
       "Action": "EditData",
