@@ -92,6 +92,9 @@ public class StarDooValueMod : Mod
                 Game1.player.addItemToInventory(cam);
                 cam = ItemRegistry.Create<StardewValley.Object>("(O)9002", 1);
                 Game1.player.addItemToInventory(cam);
+
+                StardewValley.Object dooMachine = ItemRegistry.Create<StardewValley.Object>("(BC)9017", 1);
+                Game1.player.addItemToInventory(dooMachine);
             }
         }
     }
