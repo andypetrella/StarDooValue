@@ -101,8 +101,10 @@
               "UseFirstValidOutput": false,
               "OutputItem": [
                 {
+                  "Id": "Default",
+                  "ItemId": null,
+                  "RandomItemId":  [ "(O)388", "(O)390", "(O)206" ],
                   "CustomData": null,
-                  "OutputMethod": "StardewValley.Object, Stardew Valley: OutputSolarPanel",
                   "CopyColor": false,
                   "CopyPrice": false,
                   "CopyQuality": false,
@@ -112,9 +114,6 @@
                   "PriceModifiers": null,
                   "PriceModifierMode": "Stack",
                   "Condition": null,
-                  "Id": "Default",
-                  "ItemId": null,
-                  "RandomItemId": null,
                   "MaxItems": null,
                   "MinStack": -1,
                   "MaxStack": -1,
@@ -138,10 +137,7 @@
             }
           ],
           "AdditionalConsumedItems": null,
-          "PreventTimePass": [
-            "Inside",
-            "Rain"
-          ],
+          "PreventTimePass": [],
           "ReadyTimeModifiers": null,
           "ReadyTimeModifierMode": "Stack",
           "InvalidItemMessage": null,
@@ -149,7 +145,7 @@
           "InvalidCountMessage": null,
           "LoadEffects": null,
           "WorkingEffects": null,
-          "WorkingEffectChance": 0.33,
+          "WorkingEffectChance": 1,
           "AllowLoadWhenFull": true,
           "WobbleWhileWorking": false,
           "LightWhileWorking": null,
@@ -171,16 +167,16 @@
       "Target": "Data/BigCraftables",
       "Entries": {
         "9017": {
-          "Name": "House Plant",
-          "DisplayName": "[LocalizedText Strings\\BigCraftables:HousePlant_Name]",
-          "Description": "[LocalizedText Strings\\BigCraftables:HousePlant_Description]",
-          "Price": 50,
+          "Name": "Data Observability Machine",
+          "DisplayName": "Data Observability Machine",
+          "Description": "A machine that delivers regularly insights and recommendation about data reliability",
+          "Price": -1,
           "Fragility": 0,
           "CanBePlacedOutdoors": true,
           "CanBePlacedIndoors": true,
           "IsLamp": false,
           "Texture": null,
-          "SpriteIndex": 2,
+          "SpriteIndex": 352,
           "ContextTags": null,
           "CustomFields": null
         }
