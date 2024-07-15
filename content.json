@@ -1,0 +1,193 @@
+{
+  "Format": "2.2.0",
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "9000": {
+          "Name": "File",
+          "DisplayName": "Pipeline Information",
+          "Description": "A file containing important information about pipelines.",
+          "Type": "Object",
+          "Category": -2,
+          "Price": 0,
+
+          "Texture": "Mods/StarDooValueContent/assets/File.png",  
+          "SpriteIndex": 0
+        },
+        "9001": {
+          "Name": "BrokenComputer",
+          "DisplayName": "Broken Computer",
+          "Description": "An old broken computer.",
+          "Type": "Object",
+          "Category": -2,
+          "Price": 0,
+
+          "Texture": "Mods/StarDooValueContent/assets/BrokenComputer.png",  
+          "SpriteIndex": 0
+        },
+        "9002": {
+          "Name": "DOCam",
+          "DisplayName": "Data Observability Agent",
+          "Description": "An agent recording meta information about data and operations.",
+          "Type": "Object",
+          "Category": -2,
+          "Price": 0,
+
+          "Texture": "Mods/StarDooValueContent/assets/do-cam.png",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/BrokenComputer.png",
+      "FromFile": "assets/BrokenComputer.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/File.png",
+      "FromFile": "assets/File.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/do-eye.png",
+      "FromFile": "assets/do-eye.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/StarDooValueContent/assets/do-cam.png",
+      "FromFile": "assets/do-cam.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Entries": {
+        "1001": "Basic/Gathering Feedback/Talk to key villagers to understand the data issues./Talk to Robin, Pierre, Marnie, and Gus to gather feedback./Complete the quest by talking to all specified villagers./1002/0/None/true/",
+        "1002": "ItemDelivery/Investigating Pipelines/Go find some evidence of misfunctioning pipelines./You may find (5) clues by mining reasons of data trust loss./Lewis 9000 5/1003/0/None/true/Okay, good job, it may be interesting to get additional details from the eng.",     
+        "1003": "Basic/Investigate Maru's Case/Investigate the gaps in data logs and set up data observability for Maru./Investigate Maru's data logs and set up observability processes./Complete the quest by investigating the data logs and setting up observability./-1/0/None/true/",
+        "7000": "ItemDelivery/Deliver an agent to Maru/Help Maru make her data pipelines observable./Give the agent to Maru when she is in her laboratory./Maru 9002 1/7001/0/None/false/Thanks a lot for this, let's install and configure it!",
+        "7001": "ItemDelivery/Deliver an agent to Leah/Help Leah make her data pipelines observable./Give the agent to Leah when she is in her creativity room./Leah 9002 1/-1/0/None/false/Thanks a lot for this, let's install and configure it!"      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Mail",
+      "Entries": {
+        "DataObservabilityOfficerInvitation": "Dear @,^I have an urgent matter to discuss with you regarding the town's data management. Please visit me in my office at your earliest convenience.^Best regards,^Mayor Lewis"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Machine",
+      "Entries": {
+        "(BC)9017": {
+          "HasInput": false,
+          "HasOutput": false,
+          "InteractMethod": null,
+          "OutputRules": [
+            {
+              "Id": "Default",
+              "Triggers": [
+                {
+                  "Id": "DayUpdate",
+                  "Trigger": "DayUpdate",
+                  "RequiredItemId": null,
+                  "RequiredTags": null,
+                  "RequiredCount": 1,
+                  "Condition": null
+                }
+              ],
+              "UseFirstValidOutput": false,
+              "OutputItem": [
+                {
+                  "Id": "Default",
+                  "ItemId": null,
+                  "RandomItemId":  [ "(O)388", "(O)390", "(O)206" ],
+                  "CustomData": null,
+                  "CopyColor": false,
+                  "CopyPrice": false,
+                  "CopyQuality": false,
+                  "PreserveType": null,
+                  "PreserveId": null,
+                  "IncrementMachineParentSheetIndex": 0,
+                  "PriceModifiers": null,
+                  "PriceModifierMode": "Stack",
+                  "Condition": null,
+                  "MaxItems": null,
+                  "MinStack": -1,
+                  "MaxStack": -1,
+                  "Quality": -1,
+                  "ObjectInternalName": null,
+                  "ObjectDisplayName": null,
+                  "ToolUpgradeLevel": -1,
+                  "IsRecipe": false,
+                  "StackModifiers": null,
+                  "StackModifierMode": "Stack",
+                  "QualityModifiers": null,
+                  "QualityModifierMode": "Stack",
+                  "ModData": null,
+                  "PerItemCondition": null
+                }
+              ],
+              "MinutesUntilReady": -1,
+              "DaysUntilReady": -1,
+              "InvalidCountMessage": null,
+              "RecalculateOnCollect": false
+            }
+          ],
+          "AdditionalConsumedItems": null,
+          "PreventTimePass": [],
+          "ReadyTimeModifiers": null,
+          "ReadyTimeModifierMode": "Stack",
+          "InvalidItemMessage": null,
+          "InvalidItemMessageCondition": null,
+          "InvalidCountMessage": null,
+          "LoadEffects": null,
+          "WorkingEffects": null,
+          "WorkingEffectChance": 1,
+          "AllowLoadWhenFull": true,
+          "WobbleWhileWorking": false,
+          "LightWhileWorking": null,
+          "ShowNextIndexWhileWorking": false,
+          "ShowNextIndexWhenReady": false,
+          "AllowFairyDust": true,
+          "IsIncubator": false,
+          "OnlyCompleteOvernight": false,
+          "ClearContentsOvernightCondition": null,
+          "StatsToIncrementWhenLoaded": null,
+          "StatsToIncrementWhenHarvested": null,
+          "ExperienceGainOnHarvest": null,
+          "CustomFields": null
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "Entries": {
+        "9017": {
+          "Name": "Data Observability Machine",
+          "DisplayName": "Data Observability Machine",
+          "Description": "A machine that delivers regularly insights and recommendation about data reliability",
+          "Price": -1,
+          "Fragility": 0,
+          "CanBePlacedOutdoors": true,
+          "CanBePlacedIndoors": true,
+          "IsLamp": false,
+          "Texture": null,
+          "SpriteIndex": 352,
+          "ContextTags": null,
+          "CustomFields": null
+        }
+      }
+    },
+    {
+      "Action": "EditImage",
+      "Target": "TileSheets/Craftables",
+      "FromFile": "assets/do-computer.png",
+      "FromArea": { "X": 0, "Y": 0, "Width": 16, "Height": 32 },
+      "ToArea": { "X": 0, "Y": 1408, "Width": 16, "Height": 32 }
+    }
+  ]
+}
