@@ -1,0 +1,67 @@
+[
+    {
+        "id": "1001",
+        "type": "Basic",
+        "title": "Gathering Feedback",
+        "details": "Talk to key villagers to understand the data issues.",
+        "hint": "Talk to Robin, Pierre, Marnie, and Gus to gather feedback.",
+        "trigger": "Complete the quest by talking to all specified villagers.",
+        "next_quest": "1002",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": ""
+    },
+    {
+        "id": "1002",
+        "type": "ItemDelivery",
+        "title": "Investigating Pipelines",
+        "details": "Go find some evidence of misfunctioning pipelines.",
+        "hint": "You may find (5) clues by mining reasons of data trust loss.",
+        "trigger": "Lewis 9000 5",
+        "next_quest": "1003",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": "Okay, good job, it may be interesting to get additional details from the eng."
+    },
+    {
+        "id": "1003",
+        "type": "Basic",
+        "title": "Investigate Maru's Case",
+        "details": "Investigate the gaps in data logs and set up data observability for Maru.",
+        "hint": "Investigate Maru's data logs and set up observability processes.",
+        "trigger": "Complete the quest by investigating the data logs and setting up observability.",
+        "next_quest": "-1",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "true",
+        "reaction": ""
+    },
+    {
+        "id": "7000",
+        "type": "ItemDelivery",
+        "title": "Deliver an agent to Maru",
+        "details": "Help Maru make her data pipelines observable.",
+        "hint": "Give the agent to Maru when she is in her laboratory.",
+        "trigger": "Maru 9002 1",
+        "next_quest": "7001",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "false",
+        "reaction": "Thanks a lot for this, let's install and configure it!"
+    },
+    {
+        "id": "7001",
+        "type": "ItemDelivery",
+        "title": "Deliver an agent to Leah",
+        "details": "Help Leah make her data pipelines observable.",
+        "hint": "Give the agent to Leah when she is in her creativity room.",
+        "trigger": "Leah 9002 1",
+        "next_quest": "-1",
+        "gold": "0",
+        "reward": "None",
+        "cancellable": "false",
+        "reaction": "Thanks a lot for this, let's install and configure it!"
+    }
+]
